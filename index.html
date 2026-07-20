@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Política de Privacidad — ez-YouTool</title>
+<style>
+  body {
+    font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 40px 20px 80px 20px;
+    line-height: 1.6;
+    color: #1c1c1e;
+  }
+  h1 { font-size: 26px; margin-bottom: 4px; }
+  .updated { color: #6b6b70; font-size: 13px; margin-bottom: 32px; }
+  h2 { font-size: 18px; margin-top: 36px; border-bottom: 1px solid #e5e5e7; padding-bottom: 6px; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 14px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #e5e5e7; vertical-align: top; }
+  th { background: #f5f5f7; }
+  code { background: #f5f5f7; padding: 1px 5px; border-radius: 4px; font-size: 13px; }
+  .contact { background: #f5f5f7; padding: 14px 16px; border-radius: 10px; margin-top: 10px; }
+</style>
+</head>
+<body>
+
+<h1>Política de Privacidad — ez-YouTool</h1>
+<p class="updated">Última actualización: [COMPLETAR FECHA]</p>
+
+<p>
+  Esta política describe qué datos recopila, almacena y transmite la extensión
+  <strong>ez-YouTool</strong> para Chrome/Brave, y por qué. La extensión está diseñada
+  para capturar fotogramas, marcas de tiempo y metadatos de videos de YouTube
+  directamente en el navegador del usuario.
+</p>
+
+<h2>1. Resumen</h2>
+<p>
+  ez-YouTool <strong>no vende ni comparte datos personales con terceros</strong>,
+  no incluye analítica ni rastreo de comportamiento, y no envía a ningún servidor
+  el contenido que capturas (capturas de pantalla, marcas de tiempo, metadatos de
+  video) salvo cuando tú mismo eliges descargarlo. Toda la información permanece
+  almacenada localmente en tu navegador mediante <code>chrome.storage.local</code>.
+</p>
+
+<h2>2. Qué datos se recopilan y dónde se almacenan</h2>
+<table>
+  <tr><th>Dato</th><th>Origen</th><th>Dónde se guarda</th><th>¿Se transmite a algún servidor?</th></tr>
+  <tr>
+    <td>Fotogramas capturados del video (imágenes)</td>
+    <td>Acción del usuario (Alt+S)</td>
+    <td>Localmente, <code>chrome.storage.local</code></td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <td>Marcas de tiempo / rangos y comentarios asociados</td>
+    <td>Acción del usuario (Alt+A)</td>
+    <td>Localmente, <code>chrome.storage.local</code></td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <td>Metadatos del video (título, duración, likes, canal, suscriptores, descripción)</td>
+    <td>Acción del usuario (Alt+C), leídos de la página pública de YouTube</td>
+    <td>Localmente, <code>chrome.storage.local</code></td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <td>Fecha de los días en que se usó la extensión (para el período de prueba de 3 días)</td>
+    <td>Automático, al usar cualquier función principal</td>
+    <td>Localmente, <code>chrome.storage.local</code></td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <td>Clave de licencia (tras la compra)</td>
+    <td>Ingresada manualmente por el usuario</td>
+    <td>Localmente, <code>chrome.storage.local</code></td>
+    <td><strong>Sí</strong> — se envía a la API de Gumroad únicamente para verificar su validez</td>
+  </tr>
+</table>
+
+<p>
+  Ningún dato de los mencionados arriba se envía a servidores propios de
+  ez-YouTool, porque <strong>ez-YouTool no opera ningún servidor backend</strong>.
+  La única comunicación de red que realiza la extensión es la verificación de
+  la clave de licencia contra la API pública de Gumroad
+  (<code>api.gumroad.com</code>), necesaria para desbloquear la versión paga.
+</p>
+
+<h2>3. Procesamiento de pagos</h2>
+<p>
+  Los pagos se procesan a través de <strong>Gumroad</strong>, un procesador de
+  pagos de terceros. Al comprar ez-YouTool, la información de pago (correo
+  electrónico, datos de tarjeta, etc.) es recopilada y procesada directamente
+  por Gumroad conforme a su propia
+  <a href="https://gumroad.com/privacy" target="_blank" rel="noopener">política de privacidad</a>.
+  ez-YouTool nunca ve ni almacena datos de tarjetas de pago: solo recibe, vía
+  la API de licencias de Gumroad, una confirmación de si la clave ingresada es
+  válida.
+</p>
+
+<h2>4. Permisos que solicita la extensión y por qué</h2>
+<table>
+  <tr><th>Permiso</th><th>Propósito</th></tr>
+  <tr><td><code>storage</code></td><td>Guardar capturas, marcas de tiempo, metadatos y el estado de licencia localmente en el dispositivo.</td></tr>
+  <tr><td><code>activeTab</code> / <code>scripting</code></td><td>Ejecutar la captura de fotogramas y la lectura de metadatos únicamente en la pestaña de YouTube activa cuando el usuario presiona un atajo.</td></tr>
+  <tr><td><code>tabs</code></td><td>Identificar la pestaña de YouTube activa para aislar cada sesión de captura por pestaña.</td></tr>
+  <tr><td><code>downloads</code></td><td>Permitir que el usuario descargue sus propias capturas y reportes a su computadora.</td></tr>
+  <tr><td>Acceso a <code>*.youtube.com</code></td><td>Leer el reproductor y los metadatos públicos del video que el usuario está viendo.</td></tr>
+  <tr><td>Acceso a <code>api.gumroad.com</code></td><td>Verificar la validez de la clave de licencia comprada.</td></tr>
+</table>
+
+<h2>5. Control del usuario sobre sus datos</h2>
+<ul>
+  <li>El botón <strong>"Limpiar todo"</strong> del panel borra permanentemente la sesión (capturas, marcas y metadatos) de la pestaña activa.</li>
+  <li>Desinstalar la extensión elimina todos los datos almacenados localmente por ez-YouTool, incluyendo el estado de licencia.</li>
+  <li>Ningún dato se sincroniza a la nube ni a una cuenta de usuario: todo vive únicamente en el navegador donde se instaló la extensión.</li>
+</ul>
+
+<h2>6. Menores de edad</h2>
+<p>
+  ez-YouTool no está dirigida a menores de 13 años y no recopila
+  intencionalmente información de menores.
+</p>
+
+<h2>7. Cambios a esta política</h2>
+<p>
+  Si esta política cambia, se actualizará la fecha en la parte superior de
+  esta página. Cambios significativos se comunicarán a través de la ficha de
+  la extensión en la Chrome Web Store.
+</p>
+
+<h2>8. Contacto</h2>
+<div class="contact">
+  <p>Para consultas sobre privacidad o solicitudes relacionadas con tus datos:</p>
+  <p><strong>Correo:</strong> [COMPLETAR EMAIL DE CONTACTO]</p>
+</div>
+
+</body>
+</html>
